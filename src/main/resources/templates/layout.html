@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winterhold</title>
+    <link rel="icon" type="image/ico" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" th:href="@{/resources/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/site.css}">
+<!--    <link rel="stylesheet" th:href="@{/resources/css/authorization.css}">-->
+    <script th:src="@{/resources/js/jquery-3.6.0.js}"></script>
+    <script th:src="@{/resources/js/site.js}" defer></script>
+</head>
+<body>
+<div th:fragment="nav-bar">
+    <nav class="upper-navbar">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/author/index}">Authors</a>
+        <a th:href="@{/book/index}">Books</a>
+        <a th:href="@{/customer/index}">Customers</a>
+        <a th:href="@{/loan/index}">Loan</a>
+        <a th:href="@{/calculate/calculateForm}">Calculate</a>
+    </nav>
+</div>
+<main>
+    <span>asd</span>
+</main>
+<footer th:fragment="~{layout :: footer}">
+    Copyrights &copy; 2023
+    <span> Yudho Prameswara</span>
+     All rights reserved.
+</footer>
+</body>
+</html>

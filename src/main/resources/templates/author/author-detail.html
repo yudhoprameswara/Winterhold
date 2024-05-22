@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="main-body">
+    <div th:replace="~{layout :: nav-bar}"></div>
+    <div class="main-wrapper">
+    <a th:href="@{/author/index}" class="blue-button back-button">Back</a>
+    <table class="detail-info" th:object="${info}">
+        <tr>
+            <td>
+                <label>
+                    Name
+                </label>
+            </td>
+            <td th:text="*{name}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>
+                    Birth Date
+                </label>
+            </td>
+            <td th:text="*{birthDate}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>
+                    Deceased Date
+                </label>
+            </td>
+            <td th:text="*{deceasedDate}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>
+                    Education
+                </label>
+            </td>
+            <td th:text="*{education}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>
+                    Summary
+                </label>
+            </td>
+            <td th:text="*{summary}"></td>
+        </tr>
+    </table>
+    <table>
+        <thead>
+            <th>Book Title</th>
+            <th>Category</th>
+            <th>Is Borrowed</th>
+            <th>Release Date</th>
+            <th>Total Page</th>
+        </thead>
+        <tbody>
+            <tr th:each="book: ${books}" th:object="${book}">
+                <td th:text="*{title}"></td>
+                <td th:text="*{category}"></td>
+
+                <td>
+                    <span th:if="*{borrowed == true}">Available</span>
+                    <span th:unless="*{borrowed == true}">Borrowed</span>
+
+                </td>
+                <td th:text="*{releaseDate}"></td>
+                <td th:text="*{totalPage}"></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <footer th:replace="~{layout :: footer}"></footer>
+</body>
+
+</html>

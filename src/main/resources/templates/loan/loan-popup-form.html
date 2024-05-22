@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.orf">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="formDialog" class="popup-dialog  form-dialog">
+    <header>
+        <h1>Loan Form</h1>
+        <a href="javascript:;" class="close-button">
+            <i class="fas fa-window-close"></i>
+        </a>
+    </header>
+    <form>
+        <table>
+            <tbody>
+            <tr>
+                <td>Customer*</td>
+                <td>
+                    <select name="customerNumber"  class="customerNumber">
+                    <option
+                            th:each="customer: ${customerDropdown}" th:value="${customer.value}" th:text="${customer.textContent}"></option>
+                    </select>
+                    <!--                    <div class="validation-message" data-for="companyName"></div>-->
+                    <!--                    <div class="validation-message" data-for="object"></div>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>Book*</td>
+                <td>
+                    <select name="bookCode" class="bookCode">
+                        <option th:each="book: ${bookDropdown}" th:value="${book.value}" th:text="${book.textContent}" ></option>
+                    </select>
+                    <!--                    <div class="validation-message" data-for="contactPerson"></div>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>Load Date*</td>
+                <td>
+                    <input type="date" class="loanDate">
+                    <!--                    <div class="validation-message" data-for="jobTitle"></div>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>Note</td>
+                <td>
+                   <textarea class="note"></textarea>
+                    <!--                    <div class="validation-message" data-for="jobTitle"></div>-->
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <button type="submit" class="blue-button">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="main-body">
+<div th:replace="~{layout :: nav-bar}"></div>
+
+<div class="main-wrapper">
+    <a th:href="@{/book/index}" class="blue-button back-button">Back</a>
+    <form class="filter" method="get" th:action="@{/book/detail}">
+        <input type="hidden" name="categoryName" th:value="${categoryName}">
+        <table class="detail-info">
+            <tr>
+                <td>
+                    <label>Title</label>
+                </td>
+                <td>
+                    <input type="text" placeholder=" Book Title.." name="bookTitle" th:value="${bookTitle}" >
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label> Author</label>
+                </td>
+                <td>
+                    <input type="text" placeholder=" Author.." name="authorName" th:value="${authorName}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="isBorrowed" th:value="true"><label> Is Available</label>
+                </td>
+                <td>
+                    <button type="submit" class="blue-button">Search</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div>
+        <p>List of <span th:text="${categoryName}"></span> Books</p>
+    </div>
+    <div>
+        <a th:href="@{/book/upsertForm(categoryName =${categoryName})}" class="create-button">Add new <span th:text="${categoryName}"></span> Book</a>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Action</th>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Is Borrowed</th>
+            <th>Release Date</th>
+            <th>Total Page</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row: ${grid}" th:object="${row}">
+            <td>
+                <a href="javascript:;" class="summary-button" th:unless="*{summary == ''}" th:attr="data-id=*{code}">
+                    <i class="fas fa-book"></i> Summary
+                </a>
+                <a th:href="@{/book/upsertForm(code=*{code}, categoryName = ${categoryName})}"  class="edit-button"><i class="fas fa-edit"></i> Edit</a>
+                <a th:href="@{/book/delete(code=*{code})}" class="delete-button"><i class="fas fa-eraser"></i> Delete</a>
+            </td>
+            <td th:text="*{title}"></td>
+            <td th:text="*{authorName}"></td>
+            <td>
+                <span th:if="*{isBorrowed == true}">Available</span>
+                <span th:unless="*{isBorrowed == true}">Borrowed</span>
+            </td>
+            <td th:text="*{releaseDate}"></td>
+            <td th:text="*{totalPage}"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+<footer th:replace="~{layout :: footer}">
+</footer>
+<div class="modal-layer">
+    <th:block th:replace="~{book/book-popup-summary :: summaryDialog}" ></th:block>
+</div>
+<script th:src="@{/resources/js/book/book-popup.js}">
+</script>
+</body>
+</html>

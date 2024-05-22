@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.orf">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="infoDialog" class="popup-dialog  info-dialog">
+    <header>
+        <h1>Customer Detail</h1>
+        <a href="javascript:;" class="close-button">
+            <i class="fas fa-window-close"></i>
+        </a>
+    </header>
+    <div class="bio-content">
+        <table>
+            <tr>
+                <td>Membership Number</td>
+                <td class="bio-membershipNumber"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td class="bio-name"></td>
+            </tr>
+            <tr>
+                <td>Birth Date</td>
+                <td class="bio-birthDate"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td class="bio-gender"></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td class="bio-phone"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td class="bio-address"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.orf">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="formDialog" class="popup-dialog  form-dialog">
+    <header>
+        <h1>Category Form</h1>
+        <a href="javascript:;" class="close-button">
+            <i class="fas fa-window-close"></i>
+        </a>
+    </header>
+    <form>
+        <table>
+            <tbody>
+            <tr>
+                <td>Category Name</td>
+                <td>
+                    <input type="text" class="categoryName">
+<!--                    <div class="validation-message" data-for="companyName"></div>-->
+<!--                    <div class="validation-message" data-for="object"></div>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>Floor*</td>
+                <td>
+                    <input type="text" class="floor">
+<!--                    <div class="validation-message" data-for="contactPerson"></div>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>Isle*</td>
+                <td>
+                    <input type="text" class="isle">
+<!--                    <div class="validation-message" data-for="jobTitle"></div>-->
+                </td>
+            </tr>
+
+            <tr>
+                <td>Bay*</td>
+                <td>
+                    <input type="text" class="bay">
+                    <!--                    <div class="validation-message" data-for="jobTitle"></div>-->
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <button type="submit" class="blue-button">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

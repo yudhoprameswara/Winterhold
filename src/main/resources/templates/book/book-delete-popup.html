@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.orf">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="deleteDialog" class="popup-dialog  delete-dialog">
+    <header>
+        <h1>Delete</h1>
+        <a href="javascript:;" class="close-button">
+            <i class="fas fa-window-close"></i>
+        </a>
+    </header>
+    <div>
+        <p>failed to delete Category data,</p>
+        <p>because the category has
+            <span class="dependencies" ></span>
+            connected data</p>
+        <p>Please call you IT Department for further information</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="main-body">
+<div th:replace="~{layout :: nav-bar}"></div>
+<div class="main-wrapper">
+    <div>
+        <form method="post" th:action="@{/customer/upsert}" th:object="${dto}">
+            <table class="form-table">
+                <tbody>
+                <tr>
+                    <td>
+                        <label>memberShip Number*</label>
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{membershipNumber}">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>First Name*</label>
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{firstName}">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Last Name</label>
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{lastName}">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Birth Date *</label>
+                    </td>
+                    <td>
+                        <input type="date" th:field="*{birthDate}">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Gender*</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="gender" id="male" th:value="Male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female" th:value="Female">
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Phone</label>
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{phone}">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Address</label>
+                    </td>
+                    <td>
+                        <textarea th:field="*{address}"></textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <input type="hidden" name="membershipExpireDate" th:field="*{membershipExpireDate}">
+            <button type="submit" class="blue-button">Submit Book</button>
+            <a th:href="@{/customer/index}" class="blue-button">Back</a>
+        </form>
+    </div>
+</div>
+<footer th:replace="~{layout :: footer}">
+</footer>
+</body>
+</html>

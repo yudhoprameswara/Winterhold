@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="main-body">
+<div th:replace="~{layout :: nav-bar}"></div>
+
+<div class="main-wrapper">
+    <form class="filter" method="get" th:action="@{/book/index}">
+        <input type="text" placeholder=" category Name..." name="name" th:value="${name}">
+        <button type="submit" class="blue-button">Search</button>
+    </form>
+    <div class="create-container">
+        <a href="javascript:;" class="create-button">
+            <i class="fas fa-plus-circle"></i> Create new Category</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Action</th>
+            <th>Category</th>
+            <th>Floor</th>
+            <th>Isle</th>
+            <th>Bay</th>
+            <th>Total Books</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row: ${grid}" th:object="${row}">
+            <td class="category-button ">
+                <a th:href="@{/book/detail(categoryName=*{category})}" class="books-button"><i class="fas fa-book"></i> Books</a>
+                <a href="javascript:;"  th:attr="data-id=*{category}" class="edit-button" ><i class="fas fa-edit"></i> Edit</a>
+                <a th:href="@{/book/category/delete(categoryName=*{category})}" th:attr="data-id=*{category}" class="delete-button delete-category"><i class="fas fa-eraser"></i> Delete</a>
+            </td>
+            <td th:text="*{category}"></td>
+            <td th:text="*{floor}"></td>
+            <td th:text="*{isle}"></td>
+            <td th:text="*{bay}"></td>
+            <td th:text="*{totalBooks}"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="6">
+                <div class="pagination">
+                    <div th:text="|page ${currentPage} of ${totalPages}|"></div>
+                    <div th:if="${totalPages != 0}">
+                        <a th:each="number : ${#numbers.sequence(1,totalPages)}"
+                           th:text="${number}"
+                           th:href="@{/book/index(page=${number},name=${name})}"></a>
+                    </div>
+                    <div th:unless="${totalPages != 0}">
+                        Data not found!
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<footer th:replace="~{layout :: footer}">
+</footer>
+<div class="modal-layer">
+    <th:block th:replace="~{book/book-popup-form :: formDialog}" ></th:block>
+    <th:block th:replace="~{book/book-delete-popup :: deleteDialog}" ></th:block>
+</div>
+<script th:src="@{/resources/js/book/book-popup.js}">
+</script>
+</body>
+</html>

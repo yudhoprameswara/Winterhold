@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="main-body">
+<div th:replace="~{layout :: nav-bar}"></div>
+<div class="main-wrapper">
+    <div>
+
+            <tr>
+                <td>Hasil</td>
+                <td>
+                   <span  th:text="${hasilKali}" ></span>
+                </td>
+
+
+
+    </div>
+</div>
+
+<footer th:replace="~{layout :: footer}">
+</footer>
+</body>
+</html>

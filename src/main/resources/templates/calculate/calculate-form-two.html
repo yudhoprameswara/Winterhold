@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="main-body">
+<div th:replace="~{layout :: nav-bar}"></div>
+<div class="main-wrapper">
+    <div>
+        <form th:action="@{/calculate/calculateTwo}" method="post">
+            <tr>
+                <td>Hasil</td>
+                <td>
+                    <input type="text" th:value="${hasilTambah}" name="hasil" >
+                </td>
+                <td>Angka ketiga</td>
+                <td>
+                    <input type="text" name="angkaKetiga" >
+                </td>
+            </tr>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+<footer th:replace="~{layout :: footer}">
+</footer>
+</body>
+</html>

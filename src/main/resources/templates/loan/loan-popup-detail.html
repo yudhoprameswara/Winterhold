@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.orf">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="detailDialog" class="popup-dialog  detail-dialog">
+    <header>
+        <h1>Details</h1>
+        <a href="javascript:;" class="close-button">
+            <i class="fas fa-window-close"></i>
+        </a>
+    </header>
+    <div class="detail-content">
+        <table class="book-info">
+            <thead>
+            <tr>
+                <th colspan="2">Book</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Title</td>
+                <td class="detail-title"></td>
+            </tr>
+
+            <tr>
+                <td>Category</td>
+                <td class="detail-category"></td>
+            </tr>
+
+            <tr>
+                <td>Author</td>
+                <td class="detail-author"></td>
+            </tr>
+
+            <tr>
+                <td>Floor</td>
+                <td class="detail-floor"></td>
+            </tr>
+
+            <tr>
+                <td>Isle</td>
+                <td class="detail-isle"></td>
+            </tr>
+
+            <tr>
+                <td>Bay</td>
+                <td class="detail-bay"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    <table class="customer-info">
+        <thead>
+        <tr>
+            <th colspan="2">Customer</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Membership Number</td>
+            <td class="detail-membershipNumber"></td>
+        </tr>
+
+        <tr>
+            <td>Full Name</td>
+            <td class="detail-fullName"></td>
+        </tr>
+
+        <tr>
+            <td>Phone</td>
+            <td class="detail-phone"></td>
+        </tr>
+
+        <tr>
+            <td>Membership Expire Date</td>
+            <td class="detail-expireDate"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</body>
+</html>
